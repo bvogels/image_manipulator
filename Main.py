@@ -24,15 +24,15 @@ def traverse_images():
 
 
 if __name__ == "__main__":
-    f = Frontend()
-    choice = f.main_menu()
-    if choice == 1:
-        image_choice = traverse_images()
-        View().view_image(image_choice)
-    elif choice == 2:
-        image_choice = traverse_images()
-        manipulation = f.manipulations()
-        m = Manipulation(View().view_image(image_choice))
-        m.grayscale()
-    elif choice == 3:
-        quit()
+    while True:
+        choice = Frontend().main_menu()
+        if choice == 1:
+            image_choice = traverse_images()
+            View().view_image(image_choice)
+        elif choice == 2:
+            image_choice = traverse_images()
+            manipulation = Frontend().manipulations()
+            m = Manipulation(View().view_image(image_choice), image_choice)
+            m.grayscale()
+        elif choice == 3:
+            quit()

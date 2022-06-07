@@ -16,3 +16,15 @@ class Frontend:
         print("(2) Convert to b/w")
         choice = input("Choice: ")
         return int(choice)
+
+    def file_operations(self):
+        choice = input("Do you want to save the image? (y/n) ")
+        if choice == "y":
+            return True
+        else:
+            return False
+
+
+    def messages(self, message):
+        m = {1: "File saved to {}"}
+        return m[message]
