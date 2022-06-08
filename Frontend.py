@@ -10,10 +10,23 @@ class Frontend:
         choice = input("Choice: ")
         return int(choice)
 
-    def manipulations(self):
+    def basic_manipulations(self):
         print("Available manipulations:")
         print("(1) Convert to grayscale")
         print("(2) Convert to b/w")
+        choice = input("Choice: ")
+        return int(choice)
+
+    def advanced_manipulations(self):
+        print("Advanced manipulations")
+        print("(1) Convert grayscale to b/w")
+        print("(2) Manipulate rgb color values")
+        choice = input("Choice: ")
+        return int(choice)
+
+    def miscellaneous(self):
+        print("(1) Return to main menu")
+        print("(2) Show advanced options")
         choice = input("Choice: ")
         return int(choice)
 

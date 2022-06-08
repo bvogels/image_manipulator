@@ -31,8 +31,16 @@ if __name__ == "__main__":
             View().view_image(image_choice)
         elif choice == 2:
             image_choice = traverse_images()
-            manipulation = Frontend().manipulations()
-            m = Manipulation(View().view_image(image_choice), image_choice)
-            m.grayscale()
+            manipulation = Frontend().basic_manipulations()
+            if manipulation == 1:
+                m = Manipulation(View().view_image(image_choice), image_choice, manipulation)
+                m.grayscale()
+            elif manipulation == 2:
+                m = Manipulation(View().view_image(image_choice), image_choice, manipulation)
+                m.black_and_white()
+            choice = Frontend().miscellaneous()
+            if choice == 2:
+                choice = Frontend().advanced_manipulations()
+                print (2)
         elif choice == 3:
             quit()
