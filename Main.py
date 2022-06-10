@@ -4,7 +4,11 @@ from Manipulation import Manipulation
 from View import View
 
 
-def traverse_images():
+# This function traverses the res directory, thus collecting the names of
+# all files. The filenames are then displayed in an indexed lists. The files
+# can be accessed by their index.
+
+def traverse_gallery():
     directory = 'res'
     images = {}
     index = 1
@@ -27,20 +31,19 @@ if __name__ == "__main__":
     while True:
         choice = Frontend().main_menu()
         if choice == 1:
-            image_choice = traverse_images()
-            View().view_image(image_choice)
+            image_choice = traverse_gallery()
+            View().view_image(image_choice, choice)
         elif choice == 2:
-            image_choice = traverse_images()
+            image_choice = traverse_gallery()
             manipulation = Frontend().basic_manipulations()
             if manipulation == 1:
-                m = Manipulation(View().view_image(image_choice), image_choice, manipulation)
+                m = Manipulation(View().view_image(image_choice, manipulation), image_choice, manipulation)
                 m.grayscale()
             elif manipulation == 2:
-                m = Manipulation(View().view_image(image_choice), image_choice, manipulation)
+                m = Manipulation(View().view_image(image_choice, manipulation), image_choice, manipulation)
                 m.black_and_white()
-            choice = Frontend().miscellaneous()
-            if choice == 2:
-                choice = Frontend().advanced_manipulations()
-                print (2)
+            elif manipulation == 3:
+                m = Manipulation(View().view_image(image_choice, manipulation), image_choice, manipulation)
+                m.adjust_rgb_values()
         elif choice == 3:
             quit()
